@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaimApp.Views"
         mc:Ignorable="d"
-        Title="MainProduct" Height="525" Width="801">
+        Title="MainProduct" Height="525" Width="801"
+        Background="#FAF9F9">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="70.5"/>
@@ -89,5 +90,15 @@
             </Button>
 
         </Grid>
+        <!--Logo-->
+        <Label Content="Maim" FontFamily="Merienda One" FontSize="48" Grid.Column="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Width="140" Height="80" VerticalAlignment="Top"/>
+        <!--Поисковая строка-->
+        <TextBox x:Name="SearchBox" Padding="10" FontFamily="Merienda One" Text="Поиск по приложению" Foreground="#A09D9D" VerticalContentAlignment="Center" FontSize="20" Grid.Column="2" Grid.ColumnSpan="6" Grid.RowSpan="2" Width="470" Height="50" Margin="0,-19,0,0" BorderThickness="0" Background="#EDEDED">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
     </Grid>
 </Window>
