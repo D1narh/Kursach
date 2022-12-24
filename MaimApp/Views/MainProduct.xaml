@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MaimApp.Views"
         mc:Ignorable="d"
         Title="MainProduct" Height="525" Width="801"
-        Background="#FAF9F9">
+        Background="#F6F6F6">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="70.5"/>
@@ -73,7 +73,7 @@
         <!--Logo-->
         <Label Content="Maim" FontFamily="Merienda One" FontSize="48" Grid.Column="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Width="140" Height="80" VerticalAlignment="Top"/>
         <!--Поисковая строка-->
-        <TextBox x:Name="SearchBox" Padding="10" FontFamily="Merienda One" Text="Поиск по приложению" Foreground="#A09D9D" VerticalContentAlignment="Center" FontSize="20" Grid.Column="2" Grid.ColumnSpan="6" Grid.RowSpan="2" Width="470" Height="50" Margin="0,-19,0,0" BorderThickness="0" Background="#EDEDED">
+        <TextBox x:Name="SearchBox" Padding="10" FontFamily="Merienda One" Text="Поиск по приложению" Foreground="#A09D9D" VerticalContentAlignment="Center" FontSize="20" Grid.Column="2" Grid.ColumnSpan="6" Grid.RowSpan="2" Width="470" Height="50" Margin="30,-19,0,0" BorderThickness="0" Background="#EDEDED">
             <TextBox.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -81,7 +81,7 @@
             </TextBox.Resources>
         </TextBox>
         <!--Кнопка выбора сортировки-->
-        <Border Grid.Row="1" CornerRadius="10" Grid.Column="2" Background="#EDEDED" Margin="-30,-10,0,0" Grid.ColumnSpan="3" Height="40" Width="188" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Border Grid.Row="1" CornerRadius="10" Grid.Column="2" Background="#EDEDED" Margin="-15,-10,0,0" Grid.ColumnSpan="3" Height="40" Width="170" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Border.Style>
                 <Style TargetType="{x:Type Border}">
                     <Style.Triggers>
@@ -92,13 +92,31 @@
                     </Style.Triggers>
                 </Style>
             </Border.Style>
-            <Button Style="{DynamicResource ChangeButton}">
+            <Button Style="{DynamicResource ChangeButton}" Click="Button_Click" >
                 <StackPanel Orientation="Horizontal">
-                    <Label Content="Сортировка" FontFamily="Merienda One" FontSize="18" Margin="10,0,0,0" Width="140" Height="40"/>
+                    <Label Content="Сортировка" FontFamily="Merienda One" FontSize="18" Width="120" Height="40"/>
                     <Image Height="23" Width="22" Margin="0,0,0,0" Source="\Image\Vector.png"/>
                 </StackPanel>
             </Button>
         </Border>
-
+        <!--Выпадающий список в сортировке-->
+        <Grid x:Name="ComboBoxGrid" Visibility="Hidden" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="28,23,0,0" VerticalAlignment="Top" Width="255" Height="0" HorizontalAlignment="Left">
+                <Border CornerRadius="3" HorizontalAlignment="Left" Background="#EDEDED">
+                    <StackPanel Orientation="Vertical">
+                        <Button Style="{DynamicResource ComboBoxButton}">
+                            <TextBlock Margin="0,-5,0,0" Text="По скидке" FontSize="18" Padding="7"/>
+                        </Button>
+                        <Button Style="{DynamicResource ComboBoxButton}">
+                            <TextBlock Margin="0,-5,0,0" Text="Лучшие отзывы" FontSize="18" Padding="7"/>
+                        </Button>
+                        <Button Style="{DynamicResource ComboBoxButton}">
+                            <TextBlock Margin="0,-5,0,0" Text="Цена: Сначала дешевле" FontSize="18" Padding="7"/>
+                        </Button>
+                        <Button Style="{DynamicResource ComboBoxButton}">
+                            <TextBlock Margin="0,-5,0,0" Text="Цена: Сначала дороже" FontSize="18" Padding="7"/>
+                        </Button>
+                    </StackPanel>
+                </Border>
+            </Grid>
     </Grid>
 </Window>

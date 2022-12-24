@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace MaimApp.Views
 {
@@ -84,5 +85,23 @@ namespace MaimApp.Views
             name.BeginAnimation(WidthProperty, anim);
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DoubleAnimation anim = new DoubleAnimation();
+            if (ComboBoxGrid.Visibility == Visibility.Hidden)
+            {
+                ComboBoxGrid.Visibility = Visibility.Visible;
+                anim.To = 145;
+                anim.Duration = TimeSpan.FromSeconds(0.4);
+                ComboBoxGrid.BeginAnimation(HeightProperty, anim);
+            }
+            else
+            {
+                anim.To = 0;
+                anim.Duration = TimeSpan.FromSeconds(0.1);
+                ComboBoxGrid.BeginAnimation(HeightProperty, anim);
+                ComboBoxGrid.Visibility = Visibility.Hidden;
+            }
+        }
     }
 }
