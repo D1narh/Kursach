@@ -83,5 +83,6 @@ namespace MaimApp.Views
             anim.Duration = TimeSpan.FromSeconds(0.1);
             name.BeginAnimation(WidthProperty, anim);
         }
+
     }
 }

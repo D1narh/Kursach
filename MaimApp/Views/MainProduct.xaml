@@ -41,52 +41,32 @@
             </Grid.RowDefinitions>
 
             <!--Кнопка Авиа-Билеты-->
-            <Button x:Name="AirTickets" BorderThickness="0" Width="130" Height="110" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Left" Margin="-5,-95,0,10" MouseEnter="AirTickets_MouseEnter" MouseLeave="AirTickets_MouseLeave">
+            <Button x:Name="AirTickets" Style="{DynamicResource ChangeButton}" BorderThickness="0" Width="130" Height="110" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Left" Margin="-5,-95,0,10" MouseEnter="AirTickets_MouseEnter" MouseLeave="AirTickets_MouseLeave">
                 <StackPanel Orientation="Vertical">
                     <Image Source="\Image\airplane.png" Width="80" Height="80" Margin="0,-11,0,0"/>
                     <TextBlock Text="Авиабилеты" VerticalAlignment="Center" FontSize="18" FontFamily="Merienda One" Margin="0,-5,0,0"/>
                 </StackPanel>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
             </Button>
             <!--Кнопка Автобусы-->
-            <Button x:Name="BusTickets" BorderThickness="0" Width="130" Height="110" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Left" Margin="-5,-109,0,10" MouseEnter="BusTickets_MouseEnter" MouseLeave="BusTickets_MouseLeave">
+            <Button x:Name="BusTickets" Style="{DynamicResource ChangeButton}" BorderThickness="0" Width="130" Height="110" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Left" Margin="-5,-109,0,10" MouseEnter="BusTickets_MouseEnter" MouseLeave="BusTickets_MouseLeave">
                 <StackPanel Orientation="Vertical">
                     <Image Source="\Image\bus.png" Width="70" Height="70" Margin="0,-4,0,0"/>
                     <TextBlock Text="Автобусы" VerticalAlignment="Center" FontSize="18" FontFamily="Merienda One" Margin="0,3,0,0"/>
                 </StackPanel>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
             </Button>
             <!--Кнопка Приключения-->
-            <Button x:Name="Adventures" BorderThickness="0" Width="130" Height="110" Grid.Row="2" Grid.RowSpan="2" HorizontalAlignment="Left" Margin="-5,-120,0,10" MouseEnter="Adventures_MouseEnter" MouseLeave="Adventures_MouseLeave">
+            <Button x:Name="Adventures" Style="{DynamicResource ChangeButton}" BorderThickness="0" Width="130" Height="110" Grid.Row="2" Grid.RowSpan="2" HorizontalAlignment="Left" Margin="-5,-120,0,10" MouseEnter="Adventures_MouseEnter" MouseLeave="Adventures_MouseLeave">
                 <StackPanel Orientation="Vertical">
                     <Image Source="\Image\hot-air-balloon.png" Width="70" Height="70" Margin="0,-4,0,0"/>
                     <TextBlock Text="Приключения" VerticalAlignment="Center" FontSize="18" FontFamily="Merienda One" Margin="0,0,0,0"/>
                 </StackPanel>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
             </Button>
             <!--Кнопка Отели-->
-            <Button x:Name="Hotels" BorderThickness="0" Width="130" Height="110" Grid.Row="3" Grid.RowSpan="2" HorizontalAlignment="Left" Margin="-5,-8,0,10" MouseEnter="Hotels_MouseEnter" MouseLeave="Hotels_MouseLeave">
+            <Button x:Name="Hotels" Style="{DynamicResource ChangeButton}" BorderThickness="0" Width="130" Height="110" Grid.Row="3" Grid.RowSpan="2" HorizontalAlignment="Left" Margin="-5,-8,0,10" MouseEnter="Hotels_MouseEnter" MouseLeave="Hotels_MouseLeave">
                 <StackPanel Orientation="Vertical">
                     <Image Source="\Image\hotel.png" Width="70" Height="70" Margin="0,-4,0,0"/>
                     <TextBlock Text="Отели" FontSize="18" FontFamily="Merienda One" Margin="0,2,0,0" Width="53"/>
                 </StackPanel>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
             </Button>
 
         </Grid>
@@ -96,9 +76,29 @@
         <TextBox x:Name="SearchBox" Padding="10" FontFamily="Merienda One" Text="Поиск по приложению" Foreground="#A09D9D" VerticalContentAlignment="Center" FontSize="20" Grid.Column="2" Grid.ColumnSpan="6" Grid.RowSpan="2" Width="470" Height="50" Margin="0,-19,0,0" BorderThickness="0" Background="#EDEDED">
             <TextBox.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"/>
+                    <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
+        <!--Кнопка выбора сортировки-->
+        <Border Grid.Row="1" CornerRadius="10" Grid.Column="2" Background="#EDEDED" Margin="-30,-10,0,0" Grid.ColumnSpan="3" Height="40" Width="188" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#B0BDE9"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <Button Style="{DynamicResource ChangeButton}">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Сортировка" FontFamily="Merienda One" FontSize="18" Margin="10,0,0,0" Width="140" Height="40"/>
+                    <Image Height="23" Width="22" Margin="0,0,0,0" Source="\Image\Vector.png"/>
+                </StackPanel>
+            </Button>
+        </Border>
+
     </Grid>
 </Window>
