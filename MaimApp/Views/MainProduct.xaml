@@ -43,8 +43,8 @@
             <!--Кнопка Авиа-Билеты-->
             <Button x:Name="AirTickets" Style="{DynamicResource ChangeButton}" BorderThickness="0" Width="130" Height="110" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Left" Margin="-5,-95,0,10" MouseEnter="AirTickets_MouseEnter" MouseLeave="AirTickets_MouseLeave">
                 <StackPanel Orientation="Vertical">
-                    <Image Source="\Image\airplane.png" Width="80" Height="80" Margin="0,-11,0,0"/>
-                    <TextBlock Text="Авиабилеты" VerticalAlignment="Center" FontSize="18" FontFamily="Merienda One" Margin="0,-5,0,0"/>
+                    <Image Source="\Image\hotel.png" Width="70" Height="70" Margin="0,-4,0,0"/>
+                    <TextBlock Text="Отели" FontSize="18" FontFamily="Merienda One" Margin="0,2,0,0" Width="53"/>
                 </StackPanel>
             </Button>
             <!--Кнопка Автобусы-->
@@ -61,14 +61,13 @@
                     <TextBlock Text="Приключения" VerticalAlignment="Center" FontSize="18" FontFamily="Merienda One" Margin="0,0,0,0"/>
                 </StackPanel>
             </Button>
-            <!--Кнопка Отели-->
+            <!--Кнопка Личного кабинета-->
             <Button x:Name="Hotels" Style="{DynamicResource ChangeButton}" BorderThickness="0" Width="130" Height="110" Grid.Row="3" Grid.RowSpan="2" HorizontalAlignment="Left" Margin="-5,-8,0,10" MouseEnter="Hotels_MouseEnter" MouseLeave="Hotels_MouseLeave">
                 <StackPanel Orientation="Vertical">
-                    <Image Source="\Image\hotel.png" Width="70" Height="70" Margin="0,-4,0,0"/>
-                    <TextBlock Text="Отели" FontSize="18" FontFamily="Merienda One" Margin="0,2,0,0" Width="53"/>
+                    <Image Source="\Image\user (3).png" Width="70" Height="70" Margin="0,-4,0,0"/>
+                    <TextBlock Text="Профиль" FontSize="18" FontFamily="Merienda One" Margin="0,2,0,0" Width="76"/>
                 </StackPanel>
             </Button>
-
         </Grid>
         <!--Logo-->
         <Label Content="Maim" FontFamily="Merienda One" FontSize="48" Grid.Column="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Width="140" Height="80" VerticalAlignment="Top"/>
@@ -101,22 +100,67 @@
         </Border>
         <!--Выпадающий список в сортировке-->
         <Grid x:Name="ComboBoxGrid" Visibility="Hidden" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="28,23,0,0" VerticalAlignment="Top" Width="255" Height="0" HorizontalAlignment="Left">
-                <Border CornerRadius="3" HorizontalAlignment="Left" Background="#EDEDED">
-                    <StackPanel Orientation="Vertical">
-                        <Button Style="{DynamicResource ComboBoxButton}">
-                            <TextBlock Margin="0,-5,0,0" Text="По скидке" FontSize="18" Padding="7"/>
-                        </Button>
-                        <Button Style="{DynamicResource ComboBoxButton}">
-                            <TextBlock Margin="0,-5,0,0" Text="Лучшие отзывы" FontSize="18" Padding="7"/>
-                        </Button>
-                        <Button Style="{DynamicResource ComboBoxButton}">
-                            <TextBlock Margin="0,-5,0,0" Text="Цена: Сначала дешевле" FontSize="18" Padding="7"/>
-                        </Button>
-                        <Button Style="{DynamicResource ComboBoxButton}">
-                            <TextBlock Margin="0,-5,0,0" Text="Цена: Сначала дороже" FontSize="18" Padding="7"/>
-                        </Button>
-                    </StackPanel>
-                </Border>
-            </Grid>
+            <Border CornerRadius="3" HorizontalAlignment="Left" Background="#EDEDED">
+                <StackPanel Orientation="Vertical">
+                    <Button Style="{DynamicResource ComboBoxButton}">
+                        <TextBlock Margin="0,-5,0,0" Text="По скидке" FontSize="18" Padding="7"/>
+                    </Button>
+                    <Button Style="{DynamicResource ComboBoxButton}">
+                        <TextBlock Margin="0,-5,0,0" Text="Лучшие отзывы" FontSize="18" Padding="7"/>
+                    </Button>
+                    <Button Style="{DynamicResource ComboBoxButton}">
+                        <TextBlock Margin="0,-5,0,0" Text="Цена: Сначала дешевле" FontSize="18" Padding="7"/>
+                    </Button>
+                    <Button Style="{DynamicResource ComboBoxButton}">
+                        <TextBlock Margin="0,-5,0,0" Text="Цена: Сначала дороже" FontSize="18" Padding="7"/>
+                    </Button>
+                </StackPanel>
+            </Border>
+        </Grid>
+        <!--Вид вывода товаров-->
+        <!--По вертикали-->
+        <Border Grid.Column="9" Background="#D9D9D9" Grid.Row="1" Grid.RowSpan="2" Height="45" Width="45" Margin="0,-15,0,0" CornerRadius="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#B0BDE9"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <Button Style="{DynamicResource ChangeButton}" Click="Button_Click" >
+                <StackPanel Orientation="Vertical" Width="45" Height="45">
+                    <Rectangle Fill="#FAF9F9" Width="43" Height="6" RadiusX="2" RadiusY="3" Margin="0,4,0,0"/>
+                    <Rectangle Fill="#FAF9F9" Width="43" Height="6" RadiusX="2" RadiusY="3" Margin="0,4,0,0"/>
+                    <Rectangle Fill="#FAF9F9" Width="43" Height="6" RadiusX="2" RadiusY="3" Margin="0,4,0,0"/>
+                    <Rectangle Fill="#FAF9F9" Width="43" Height="6" RadiusX="2" RadiusY="3" Margin="0,4,0,0"/>
+                </StackPanel>
+            </Button>
+        </Border>
+        <!--Кубами-->
+        <Border Grid.Column="8" Grid.ColumnSpan="2" Background="#D9D9D9" Grid.Row="1" Grid.RowSpan="2" Height="45" Width="45" Margin="-20,-15,0,0" CornerRadius="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#B0BDE9"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <Button Style="{DynamicResource ChangeButton}" Click="Button_Click" >
+                <Grid Width="45" Height="45">
+                    <Rectangle Fill="#FAF9F9" Height="17" RadiusX="2" RadiusY="3" Margin="3,24,25,4"/>
+                    <Rectangle Fill="#FAF9F9" Height="17" RadiusX="2" RadiusY="3" Margin="3,4,25,24"/>
+                    <Rectangle Fill="#FAF9F9" Width="17" Height="17" RadiusX="2" RadiusY="3" Margin="25,24,3,4"/>
+                    <Rectangle Fill="#FAF9F9" Width="17" Height="17" RadiusX="2" RadiusY="3" Margin="25,4,3,24"/>
+                </Grid>
+            </Button>
+        </Border>
+
+        <!--Список товаров-->
     </Grid>
 </Window>

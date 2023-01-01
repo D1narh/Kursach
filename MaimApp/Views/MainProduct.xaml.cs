@@ -92,7 +92,7 @@ namespace MaimApp.Views
             {
                 ComboBoxGrid.Visibility = Visibility.Visible;
                 anim.To = 145;
-                anim.Duration = TimeSpan.FromSeconds(0.4);
+                anim.Duration = TimeSpan.FromSeconds(0.25);
                 ComboBoxGrid.BeginAnimation(HeightProperty, anim);
             }
             else

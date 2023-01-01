@@ -45,6 +45,10 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <!--Для кнопок с круглыми краями-->
+        
+        
+        
         
     </Application.Resources>
 </Application>
