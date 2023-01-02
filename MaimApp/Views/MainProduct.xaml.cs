@@ -1,18 +1,20 @@
-﻿using System;
+﻿using MaimApp.Class;
+using MaimApp.Class.MainProductC;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+using MaimApp.Class.MainProductC;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Xml.Linq;
+using MaimApp.BLL;
 
 namespace MaimApp.Views
 {
@@ -21,6 +23,7 @@ namespace MaimApp.Views
     /// </summary>
     public partial class MainProduct : Window
     {
+        private readonly Formatter _formatter = new Formatter();
         public MainProduct()
         {
             InitializeComponent();
@@ -29,6 +32,37 @@ namespace MaimApp.Views
             BusTickets.Background = new SolidColorBrush(Colors.Black) { Opacity = 0.3 };
             Hotels.Background = new SolidColorBrush(Colors.Black) { Opacity = 0.3 };
             Adventures.Background = new SolidColorBrush(Colors.Black) { Opacity = 0.3 };
+
+            var country = GetUserCountryByIp();
+            GetAllSite();
+        }
+
+        private async Task GetAllSite()
+        {
+            var result = await _formatter.GetAddressesFromUrl(
+                 "https://101hotels.com/api/hotel/search?r=0.1345066605085845&params=%7B%22city_ids%22%3A%5B2%5D%2C%22hotel_ids%22%3A%5B%5D%2C%22destination%22%3A%7B%7D%7D");
+            //"https://101hotels.com/api/hotel/search?r=0.5406233108723135&params=%7B%22city_ids%22%3A%5B75%5D%2C%22hotel_ids%22%3A%5B%5D%2C%22destination%22%3A%7B%7D%7D" Астрахань id=75
+            //"https://101hotels.com/api/hotel/search?r=0.8865264677573255&params=%7B%22city_ids%22%3A%5B2%5D%2C%22hotel_ids%22%3A%5B%5D%2C%22destination%22%3A%7B%7D%7D" Москва
+
+            var i = result;
+        }
+
+        public static string GetUserCountryByIp()
+        {
+            IpInfo ipInfo = new IpInfo();
+            try
+            {
+                string info = new WebClient().DownloadString("http://ipinfo.io");
+                ipInfo = JsonConvert.DeserializeObject<IpInfo>(info);
+                RegionInfo myRI1 = new RegionInfo(ipInfo.Country);
+                ipInfo.Country = myRI1.EnglishName;
+            }
+            catch (Exception)
+            {
+                ipInfo.Country = null;
+            }
+
+            return ipInfo.Country;
         }
 
         private void AirTickets_MouseEnter(object sender, MouseEventArgs e)
