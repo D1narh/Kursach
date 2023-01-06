@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MaimApp.Views"
         mc:Ignorable="d"
         Title="MainProduct" Height="525" Width="800"
-        Background="#F6F6F6">
+        Background="#F6F6F6" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="70.5"/>
@@ -98,25 +98,6 @@
                 </StackPanel>
             </Button>
         </Border>
-        <!--Выпадающий список в сортировке-->
-        <Grid x:Name="ComboBoxGrid" Visibility="Hidden" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="28,23,0,0" VerticalAlignment="Top" Width="255" Height="0" HorizontalAlignment="Left">
-            <Border CornerRadius="3" HorizontalAlignment="Left" Background="#EDEDED">
-                <StackPanel Orientation="Vertical">
-                    <Button Style="{DynamicResource ComboBoxButton}">
-                        <TextBlock Margin="0,-5,0,0" Text="По скидке" FontSize="18" Padding="7"/>
-                    </Button>
-                    <Button Style="{DynamicResource ComboBoxButton}">
-                        <TextBlock Margin="0,-5,0,0" Text="Лучшие отзывы" FontSize="18" Padding="7"/>
-                    </Button>
-                    <Button Style="{DynamicResource ComboBoxButton}">
-                        <TextBlock Margin="0,-5,0,0" Text="Цена: Сначала дешевле" FontSize="18" Padding="7"/>
-                    </Button>
-                    <Button Style="{DynamicResource ComboBoxButton}">
-                        <TextBlock Margin="0,-5,0,0" Text="Цена: Сначала дороже" FontSize="18" Padding="7"/>
-                    </Button>
-                </StackPanel>
-            </Border>
-        </Grid>
         <!--Вид вывода товаров-->
         <!--По вертикали-->
         <Border Grid.Column="9" Background="#B0BDE9" Grid.Row="1" Grid.RowSpan="2" Height="45" Width="45" Margin="0,-15,0,0" CornerRadius="3" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -161,29 +142,66 @@
             </Button>
         </Border>
         <!--Список товаров-->
-        <ListView BorderThickness="0" Background="#F6F6F6" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="8" Grid.RowSpan="9" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="600" Height="360" Margin="0,10,0,0">
+        <ListView x:Name="list" BorderThickness="0" Background="#F6F6F6" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="8" Grid.RowSpan="9" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="600" Height="360" Margin="0,10,0,0">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ContentControl>
                         <Grid>
-                            <Border CornerRadius="4" Background="#FFFFFF" Width ="600" >
-                                <Grid x:Name="grd">
-                                    <Image Source="{Binding Image}"/>
-                                    <Label Content="{Binding ID}"/>
-                                    <Label Content="{Binding ShortDiscriprion}"/>
-                                    <Label Content="{Binding Price}"/>
-                                    <Button x:Name="Buy" Content="Купить" Background="#B0BDE9"/>
-                                    <Button x:Name="Favorite">
-                                        <StackPanel>
-                                            <Image Source="{Binding ImageFavorite}"/>
-                                        </StackPanel>
-                                    </Button>
-                                </Grid>
-                            </Border>
+                            <Grid x:Name="grd" Width ="600" Background="#FFFFFF">
+                                <Image Source="{Binding ImagePath}" Width="70" Height="70" Margin="0,0,0,0"/>
+                                <Label Content="{Binding ID}"/>
+                                <Label Content="{Binding ShortDescription}"/>
+                                <Label Content="{Binding Price}"/>
+                                <Button x:Name="Buy" Content="Купить" Background="#B0BDE9" Width="30" Height="30"/>
+                                <Button x:Name="Favorite"  Width="30" Height="30">
+                                    <StackPanel>
+                                        <Image Source="{Binding ImageFavorite}"/>
+                                    </StackPanel>
+                                </Button>
+                            </Grid>
                         </Grid>
                     </ContentControl>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <!--Выпадающий список в сортировке-->
+        <Grid x:Name="ComboBoxGrid" Visibility="Hidden" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="28,23,0,0" VerticalAlignment="Top" Width="255" Height="0" HorizontalAlignment="Left">
+            <Border CornerRadius="3" HorizontalAlignment="Left" Background="#EDEDED">
+                <StackPanel Orientation="Vertical">
+                    <Button Style="{DynamicResource ComboBoxButton}">
+                        <TextBlock Margin="0,-5,0,0" Text="По скидке" FontSize="18" Padding="7"/>
+                    </Button>
+                    <Button Style="{DynamicResource ComboBoxButton}">
+                        <TextBlock Margin="0,-5,0,0" Text="Лучшие отзывы" FontSize="18" Padding="7"/>
+                    </Button>
+                    <Button Style="{DynamicResource ComboBoxButton}">
+                        <TextBlock Margin="0,-5,0,0" Text="Цена: Сначала дешевле" FontSize="18" Padding="7"/>
+                    </Button>
+                    <Button Style="{DynamicResource ComboBoxButton}">
+                        <TextBlock Margin="0,-5,0,0" Text="Цена: Сначала дороже" FontSize="18" Padding="7"/>
+                    </Button>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!--Аницамия ожидания-->
+        <Image x:Name="Animation" Source="\Image\IqGjWuAdGoQ.jpg" Grid.Column="4" Grid.ColumnSpan="3" Margin="73,10,6,25" Grid.RowSpan="4" Grid.Row="4">
+            <Image.RenderTransform>
+                <RotateTransform x:Name="rotate"
+                         CenterX="25"
+                         CenterY="25"/>
+            </Image.RenderTransform>
+            <Image.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+                            <DoubleAnimation Storyboard.TargetName="rotate"
+                                     Storyboard.TargetProperty="Angle"
+                                     By="360" Duration="0:0:1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Image.Triggers>
+        </Image>
     </Grid>
 </Window>

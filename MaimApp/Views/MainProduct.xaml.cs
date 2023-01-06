@@ -10,11 +10,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using MaimApp.Class.MainProductC;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using MaimApp.BLL;
+using System.Security.Cryptography.X509Certificates;
+using System.Windows.Media.Imaging;
+using Newtonsoft.Json.Linq;
+using System.Runtime.InteropServices;
 
 namespace MaimApp.Views
 {
@@ -32,9 +35,6 @@ namespace MaimApp.Views
             BusTickets.Background = new SolidColorBrush(Colors.Black) { Opacity = 0.3 };
             Hotels.Background = new SolidColorBrush(Colors.Black) { Opacity = 0.3 };
             Adventures.Background = new SolidColorBrush(Colors.Black) { Opacity = 0.3 };
-
-            var country = GetUserCountryByIp();
-            GetAllSite();
         }
 
         private async Task GetAllSite()
@@ -43,8 +43,6 @@ namespace MaimApp.Views
                  "https://101hotels.com/api/hotel/search?r=0.1345066605085845&params=%7B%22city_ids%22%3A%5B2%5D%2C%22hotel_ids%22%3A%5B%5D%2C%22destination%22%3A%7B%7D%7D");
             //"https://101hotels.com/api/hotel/search?r=0.5406233108723135&params=%7B%22city_ids%22%3A%5B75%5D%2C%22hotel_ids%22%3A%5B%5D%2C%22destination%22%3A%7B%7D%7D" Астрахань id=75
             //"https://101hotels.com/api/hotel/search?r=0.8865264677573255&params=%7B%22city_ids%22%3A%5B2%5D%2C%22hotel_ids%22%3A%5B%5D%2C%22destination%22%3A%7B%7D%7D" Москва
-
-            var i = result;
         }
 
         public static string GetUserCountryByIp()
@@ -136,6 +134,20 @@ namespace MaimApp.Views
                 ComboBoxGrid.BeginAnimation(HeightProperty, anim);
                 ComboBoxGrid.Visibility = Visibility.Hidden;
             }
+        }
+
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            await LoadProduct();
+
+            //Animation.Visibility = Visibility.Hidden;
+            Animation.BeginAnimation(Image.VisibilityProperty, null);
+        }
+        public async Task LoadProduct()
+        {
+            ViewProduct viewProduct = new ViewProduct();
+
+            list.ItemsSource = await viewProduct.FillCatalog();
         }
     }
 }
