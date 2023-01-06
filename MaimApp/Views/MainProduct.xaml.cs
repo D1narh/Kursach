@@ -140,14 +140,15 @@ namespace MaimApp.Views
         {
             await LoadProduct();
 
-            //Animation.Visibility = Visibility.Hidden;
             Animation.BeginAnimation(Image.VisibilityProperty, null);
         }
         public async Task LoadProduct()
         {
             ViewProduct viewProduct = new ViewProduct();
 
-            list.ItemsSource = await viewProduct.FillCatalog();
+
+
+           list.ItemsSource = await Task.Run(() => viewProduct.FillCatalog());
         }
     }
 }
