@@ -72,7 +72,7 @@
         <!--Logo-->
         <Label Content="Maim" FontFamily="Merienda One" FontSize="48" Grid.Column="8" Grid.ColumnSpan="2" Grid.RowSpan="2" Width="140" Height="80" VerticalAlignment="Top"/>
         <!--Поисковая строка-->
-        <TextBox x:Name="SearchBox" Padding="10" FontFamily="Merienda One" Text="Поиск по приложению" Foreground="#A09D9D" VerticalContentAlignment="Center" FontSize="20" Grid.Column="2" Grid.ColumnSpan="6" Grid.RowSpan="2" Width="470" Height="50" Margin="30,-19,0,0" BorderThickness="0" Background="#EDEDED">
+        <TextBox x:Name="SearchBox" Padding="10" FontFamily="Merienda One" Text="Поиск по приложению" Foreground="#A09D9D" VerticalContentAlignment="Center" FontSize="20" Grid.Column="2" Grid.ColumnSpan="6" Grid.RowSpan="2" Width="450" Height="50" Margin="30,-19,0,0" BorderThickness="0" Background="#EDEDED">
             <TextBox.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -80,7 +80,7 @@
             </TextBox.Resources>
         </TextBox>
         <!--Кнопка выбора сортировки-->
-        <Border Grid.Row="1" CornerRadius="10" Grid.Column="2" Background="#EDEDED" Margin="-15,-10,0,0" Grid.ColumnSpan="3" Height="40" Width="170" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Border Grid.Row="1" CornerRadius="10" Grid.Column="2" Background="#EDEDED" Margin="-21,-10,0,0" Grid.ColumnSpan="3" Height="35" Width="160" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Border.Style>
                 <Style TargetType="{x:Type Border}">
                     <Style.Triggers>
@@ -91,16 +91,16 @@
                     </Style.Triggers>
                 </Style>
             </Border.Style>
-            <Button Style="{DynamicResource ChangeButton}" Click="Button_Click" >
+            <Button Style="{DynamicResource ChangeButton}" Click="Button_Click" Height="35" Width="160">
                 <StackPanel Orientation="Horizontal">
-                    <Label Content="Сортировка" FontFamily="Merienda One" FontSize="18" Width="120" Height="40"/>
-                    <Image Height="23" Width="22" Margin="0,0,0,0" Source="\Image\Vector.png"/>
+                    <Label Content="Сортировка" FontFamily="Merienda One" FontSize="18" Width="144" Height="40"/>
+                    <Image Height="15" Width="15" Margin="-30,5,0,0" Source="\Image\Vector.png"/>
                 </StackPanel>
             </Button>
         </Border>
         <!--Вид вывода товаров-->
         <!--По вертикали-->
-        <Border Grid.Column="9" Background="#B0BDE9" Grid.Row="1" Grid.RowSpan="2" Height="45" Width="45" Margin="0,-15,0,0" CornerRadius="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Border Grid.Column="9" Background="#B0BDE9" Grid.Row="1" Grid.RowSpan="2" Height="35" Width="35" Margin="0,-15,0,0" CornerRadius="3" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Border.Style>
                 <Style TargetType="{x:Type Border}">
                     <Style.Triggers>
@@ -112,16 +112,16 @@
                 </Style>
             </Border.Style>
             <Button Style="{DynamicResource ChangeButton}">
-                <StackPanel Orientation="Vertical" Width="45" Height="45">
-                    <Rectangle Fill="#FAF9F9" Width="36" Height="6" RadiusX="2" RadiusY="3" Margin="0,4,0,0"/>
-                    <Rectangle Fill="#FAF9F9" Width="36" Height="6" RadiusX="2" RadiusY="3" Margin="0,4,0,0"/>
-                    <Rectangle Fill="#FAF9F9" Width="36" Height="6" RadiusX="2" RadiusY="3" Margin="0,4,0,0"/>
-                    <Rectangle Fill="#FAF9F9" Width="36" Height="6" RadiusX="2" RadiusY="3" Margin="0,4,0,0"/>
+                <StackPanel Orientation="Vertical" Width="35" Height="35">
+                    <Rectangle Fill="#FAF9F9" Width="26" Height="3" RadiusX="2" RadiusY="3" Margin="0,5,0,0"/>
+                    <Rectangle Fill="#FAF9F9" Width="26" Height="3" RadiusX="2" RadiusY="3" Margin="0,4,0,0"/>
+                    <Rectangle Fill="#FAF9F9" Width="26" Height="3" RadiusX="2" RadiusY="3" Margin="0,4,0,0"/>
+                    <Rectangle Fill="#FAF9F9" Width="26" Height="3" RadiusX="2" RadiusY="3" Margin="0,4,0,0"/>
                 </StackPanel>
             </Button>
         </Border>
         <!--Кубами-->
-        <Border Grid.Column="8" Grid.ColumnSpan="2" Background="#D9D9D9" Grid.Row="1" Grid.RowSpan="2" Height="45" Width="45" Margin="-20,-15,0,0" CornerRadius="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Border Grid.Column="8" Grid.ColumnSpan="2" Background="#D9D9D9" Grid.Row="1" Grid.RowSpan="2" Height="35" Width="35" Margin="-1,-15,0,0" CornerRadius="3" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Border.Style>
                 <Style TargetType="{x:Type Border}">
                     <Style.Triggers>
@@ -133,33 +133,49 @@
                 </Style>
             </Border.Style>
             <Button Style="{DynamicResource ChangeButton}">
-                <Grid Width="45" Height="45">
-                    <Rectangle Fill="#FAF9F9" Height="17" RadiusX="2" RadiusY="3" Margin="3,24,25,4"/>
-                    <Rectangle Fill="#FAF9F9" Height="17" RadiusX="2" RadiusY="3" Margin="3,4,25,24"/>
-                    <Rectangle Fill="#FAF9F9" Width="17" Height="17" RadiusX="2" RadiusY="3" Margin="25,24,3,4"/>
-                    <Rectangle Fill="#FAF9F9" Width="17" Height="17" RadiusX="2" RadiusY="3" Margin="25,4,3,24"/>
+                <Grid Width="35" Height="35">
+                    <Rectangle Fill="#FAF9F9" Width="14" Height="14" RadiusX="2" RadiusY="3" Margin="-17,-17,0,0"/>
+                    <Rectangle Fill="#FAF9F9" Width="14" Height="14" RadiusX="2" RadiusY="3" Margin="-17,16,0,0"/>
+                    <Rectangle Fill="#FAF9F9" Width="14" Height="14" RadiusX="2" RadiusY="3" Margin="17,-17,0,0"/>
+                    <Rectangle Fill="#FAF9F9" Width="14" Height="14" RadiusX="2" RadiusY="3" Margin="17,16,0,0"/>
                 </Grid>
             </Button>
         </Border>
         <!--Список товаров-->
-        <ListView x:Name="list" BorderThickness="0" Background="#F6F6F6" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="8" Grid.RowSpan="9" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="600" Height="360" Margin="0,10,0,0">
+        <ListView x:Name="list" BorderThickness="0" Background="#F6F6F6" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="8" Grid.RowSpan="9"  Width="600" Height="360" Margin="0,10,0,0">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ContentControl>
-                        <Grid>
-                            <Grid x:Name="grd" Width ="600" Background="#FFFFFF">
-                                <Image Source="{Binding ImagePath}" Width="70" Height="70" Margin="0,0,0,0"/>
-                                <Label Content="{Binding ID}"/>
-                                <Label Content="{Binding ShortDescription}"/>
-                                <Label Content="{Binding Price}"/>
-                                <Button x:Name="Buy" Content="Купить" Background="#B0BDE9" Width="30" Height="30"/>
-                                <Button x:Name="Favorite"  Width="30" Height="30">
+                        <Border Width ="570" Height="115" Background="#FFFFFF" BorderBrush="Black" CornerRadius="6,6,6,6">
+                            <Grid x:Name="grd">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Border CornerRadius="10" Width="150" Height="100" Grid.Column="0" Margin="-20,0,0,0">
+                                    <Border.Background>
+                                        <ImageBrush Stretch="Fill" ImageSource="{Binding ImagePath}"/>
+                                    </Border.Background>
+                                </Border>
+                                <Label Content="{Binding ID}" Visibility="Hidden" FontFamily="Merienda One"/>
+                                <Label Content="{Binding Name}" Grid.Column="1" FontFamily="Merienda One"/>
+                                <Label Content="{Binding ShortDiscription}" Margin="0,25,0,0" Grid.Column="1" FontFamily="Merienda One"/>
+                                <Label Content="{Binding Price}" Grid.Column="2" FontFamily="Merienda One" Margin="90,30,0,0"/>
+                                <Button x:Name="Buy" Content="Купить" Width="90" Height="28" FontFamily="Merienda One" FontSize="17" Foreground="#FFFFFF" Grid.Column="2" Margin="70,34,0,0" Background="#B0BDE9" BorderThickness="0">
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="9"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <Button x:Name="Favorite" Grid.Column="2" Width="25" Height="25" BorderThickness="0" Margin="150,-80,0,0">
                                     <StackPanel>
                                         <Image Source="{Binding ImageFavorite}"/>
                                     </StackPanel>
                                 </Button>
                             </Grid>
-                        </Grid>
+                        </Border>
                     </ContentControl>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -169,31 +185,32 @@
             <Border CornerRadius="3" HorizontalAlignment="Left" Background="#EDEDED">
                 <StackPanel Orientation="Vertical">
                     <Button Style="{DynamicResource ComboBoxButton}">
-                        <TextBlock Margin="0,-5,0,0" Text="По скидке" FontSize="18" Padding="7"/>
+                        <TextBlock Margin="0,-5,0,0" Text="По скидке" FontSize="18" FontFamily="Merienda One" Padding="7"/>
                     </Button>
                     <Button Style="{DynamicResource ComboBoxButton}">
-                        <TextBlock Margin="0,-5,0,0" Text="Лучшие отзывы" FontSize="18" Padding="7"/>
+                        <TextBlock Margin="0,-5,0,0" Text="Лучшие отзывы" FontSize="18" FontFamily="Merienda One" Padding="7"/>
                     </Button>
                     <Button Style="{DynamicResource ComboBoxButton}">
-                        <TextBlock Margin="0,-5,0,0" Text="Цена: Сначала дешевле" FontSize="18" Padding="7"/>
+                        <TextBlock Margin="0,-5,0,0" Text="Цена: Сначала дешевле" FontSize="18" FontFamily="Merienda One" Padding="7"/>
                     </Button>
                     <Button Style="{DynamicResource ComboBoxButton}">
-                        <TextBlock Margin="0,-5,0,0" Text="Цена: Сначала дороже" FontSize="18" Padding="7"/>
+                        <TextBlock Margin="0,-5,0,0" Text="Цена: Сначала дороже" FontSize="18" FontFamily="Merienda One" Padding="7"/>
                     </Button>
                 </StackPanel>
             </Border>
         </Grid>
 
         <!--Аницамия ожидания-->
-        <Image x:Name="Animation" Source="\Image\IqGjWuAdGoQ.jpg" Grid.Column="4" Grid.ColumnSpan="3" Margin="73,10,6,25" Grid.RowSpan="4" Grid.Row="4">
+        <Label x:Name="SearchText" Content="Поиск предложений" Grid.Column="4" Grid.ColumnSpan="4" Grid.Row="4" FontSize="22" FontFamily="Merienda One" Foreground="Gray" Margin="41,0,41,50" Grid.RowSpan="2"/>
+        <Image x:Name="animation" Source="\Image\Group 85.png" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" Margin="40,0,40,0">
             <Image.RenderTransform>
                 <RotateTransform x:Name="rotate"
-                         CenterX="25"
-                         CenterY="25"/>
+                         CenterX="20"
+                         CenterY="22"/>
             </Image.RenderTransform>
             <Image.Triggers>
                 <EventTrigger RoutedEvent="Loaded">
-                    <BeginStoryboard>
+                    <BeginStoryboard x:Name="storyboard">
                         <Storyboard RepeatBehavior="Forever">
                             <DoubleAnimation Storyboard.TargetName="rotate"
                                      Storyboard.TargetProperty="Angle"

@@ -24,7 +24,8 @@ namespace MaimApp.Class.MainProductC
             {
                 Products.Add(new ProductInformation
                 {
-                    ImagePath = i
+                    ImagePath = i,
+                    ShortDiscription = "Краткое описание:\nВцфвцфвцфцв"
                 });
             }
             return Products;
